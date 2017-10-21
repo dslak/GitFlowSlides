@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Asap|Asap+Condensed');
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: none;
+    font-family: 'Asap';
+}
+
+h1{font-size: 80px;}
+h2{font-size: 70px;}
+h3{font-size: 60px;}
+h4{font-size: 50px;}
+h5{font-size: 40px;}
+h6{font-size: 30px;}
+
+h1,h2,h3,h4,h5,h6{
+     padding: 10px 0;
+     margin: 10px 0;
+}
+
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #222;
+} 
+
+
+section > div{
+    position: absolute;
+    min-height: 80px;
+    width: 55vw;
+    top: 50%;
+    left: 10vw;
+    transform: translate(0,-50%);
+}
+
+section > img.git{
+    position: absolute;
+    right: 10vw;
+    top: 50%;
+    width: 20vw;
+    transform: translate(0, -50%);
+}
+
+section.git{
+    background-image: url(img/git_repeat.png);
+    background-position: right 10vw top;
+    background-repeat: repeat-y;
+    background-size: 20vw;
+}
+
+section.git-start{
+    background-image: url(img/git_start.png);
+    background-position: right 10vw bottom;
+    background-repeat: no-repeat;
+    background-size: 20vw 50vh;
+}
+
+section.git-stop{
+    background-image: url(img/git_stop.png);
+    background-position: right 10vw top;
+    background-repeat: no-repeat;
+    background-size: 20vw;
+}
+
+/*
+section:nth-child(1){background-color: #222;}
+section:nth-child(2){background-color: #222;}
+section:nth-child(3){background-color: yellow;}
+section:nth-child(4){background-color: blue;}
+section:nth-child(5){background-color: green;}
+section:nth-child(6){background-color: purple;}
+section:nth-child(7){background-color: white;}
+*/
+
+button{
+    width: 90%;
+    height:40vh;
+    margin:4vh 0;
+    font-size: 3rem;
+}
+
+
+
+
+
+.text-white{
+    color: white;
+}
