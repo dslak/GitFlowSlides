@@ -11,9 +11,9 @@ html, body {
 h1{font-size: 80px;}
 h2{font-size: 70px;}
 h3{font-size: 60px;}
-h4{font-size: 50px;}
-h5{font-size: 40px;}
-h6{font-size: 30px;}
+h4{font-size: 40px;}
+h5{font-size: 35px;}
+h6{font-size: 25px;}
 
 h1,h2,h3,h4,h5,h6{
      padding: 10px 0;
@@ -27,21 +27,55 @@ section{
     background-color: #222;
 } 
 
+section.white{
+    background-color: #fff;
+}
+
+section.grey{
+    background-color: #333;
+}
+
 
 section > div{
     position: absolute;
     min-height: 80px;
-    width: 55vw;
+    width: 50vw;
     top: 50%;
     left: 10vw;
     transform: translate(0,-50%);
+}
+section > div.full{
+    width: 80vw;
+}
+
+section > div.half{
+    width: 35vw;
+}
+
+section > img{
+    position: absolute;
+    right: 10vw;
+    top: 50%;
+    width: 25vw;
+    transform: translate(0, -50%);
 }
 
 section > img.git{
     position: absolute;
     right: 10vw;
     top: 50%;
-    width: 20vw;
+    width: 30vw;
+    transform: translate(0, -50%);
+}
+
+section > img.git.bottom{
+    top: auto;
+    bottom: 0;
+    transform: translate(0, 0);
+}
+
+section > img.git.half{
+    width: 35vw;
     transform: translate(0, -50%);
 }
 
@@ -49,32 +83,54 @@ section.git{
     background-image: url(img/git_repeat.png);
     background-position: right 10vw top;
     background-repeat: repeat-y;
-    background-size: 20vw;
+    background-size: 30vw;
 }
 
 section.git-start{
     background-image: url(img/git_start.png);
     background-position: right 10vw bottom;
     background-repeat: no-repeat;
-    background-size: 20vw 50vh;
+    background-size: 30vw;/* 50vh*/
 }
 
 section.git-stop{
     background-image: url(img/git_stop.png);
     background-position: right 10vw top;
     background-repeat: no-repeat;
-    background-size: 20vw;
+    background-size: 30vw;
 }
 
-/*
-section:nth-child(1){background-color: #222;}
-section:nth-child(2){background-color: #222;}
-section:nth-child(3){background-color: yellow;}
-section:nth-child(4){background-color: blue;}
-section:nth-child(5){background-color: green;}
-section:nth-child(6){background-color: purple;}
-section:nth-child(7){background-color: white;}
-*/
+
+section.git-classic{
+    background-image: url(img/git_repeat-classic.png);
+    background-position: right 10vw top;
+    background-repeat: repeat-y;
+    background-size: 30vw;
+}
+section.git-classic.r2{
+    background-image: url(img/git_repeat-classic2.png);
+}
+section.git-classic.r3{
+    background-image: url(img/git_repeat-classic3.png);
+}
+section.git-classic.r4{
+    background-image: url(img/git_repeat-classic4.png);
+}
+
+section.git-start-classic{
+    background-image: url(img/git_start-classic.png);
+    background-position: right 10vw bottom;
+    background-repeat: no-repeat;
+    background-size: 30vw;/* 50vh*/
+}
+
+section.git-stop-classic{
+    background-image: url(img/git_stop-classic.png);
+    background-position: right 10vw top;
+    background-repeat: no-repeat;
+    background-size: 30vw;
+}
+
 
 button{
     width: 90%;
@@ -83,10 +139,50 @@ button{
     font-size: 3rem;
 }
 
+table{
+    width: 100%;
+    padding:0;
+}
+
+tr td{
+    background: rgba(0,0,0,0.5);
+}
+tr:nth-child(even) td{
+    background: rgba(0,0,0,0.4);
+}
+td{
+    padding: 8px 15px;
+    border-radius: 4px;
+}
 
 
+code{
+    display: block;
+    padding: 15px 30px;
+    margin-top: 20px;
+    background: rgba(0,0,0,0.5);
+    font-size: 20px;
+    border-radius: 4px;
+    border-top: 3px solid #444;
+    border-bottom: 3px solid #444;
+}
 
+code span{
+    display: block;
+    padding: 4px;
+}
 
-.text-white{
-    color: white;
+code comment{
+    font-weight: 100;
+    color: green
+}
+
+.text-white{ color: white;}
+.text-white b{color: #999;}
+
+.text-right{
+    text-align: right;
+}
+.text-center{
+    text-align: center;
 }
