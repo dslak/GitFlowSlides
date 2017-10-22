@@ -21,7 +21,7 @@
     
     <section class="git-stop">
         <div class="text-white">
-            <h1>Why git?</h1>
+            <h1>Why Git?</h1>
             <h6>Prima di iniziare a parlare di Git, ed in particolar modo di GitFlow, è bene fare una panoramica dei sistemi di controllo del codice sorgente più usati...</h6>
         </div>
         <img class="git" src="img/git.png">
@@ -123,7 +123,7 @@
             </code>
             <h6>L'operazione creerà una directory nascosta <b>.git</b> contenente la configurazione della repo.</h6>
             
-            La repo è composta da tre "alberi" mantenuti da git. Il primo è la <b>Directory di lavoro</b> che contiene i files attuali. Il secondo è l'<b>Index</b> che fa da spazio di transito per i files e per finire l'<b>HEAD</b> che punta all'ultimo commit fatto. 
+            La repo è composta da tre "alberi" mantenuti da Git. Il primo è la <b>Directory di lavoro</b> che contiene i files attuali. Il secondo è l'<b>Index</b> che fa da spazio di transito per i files e per finire l'<b>HEAD</b> che punta all'ultimo commit fatto. 
         </div>
     </section>   
     
@@ -192,7 +192,7 @@
     <section class="git-classic ">
         <div class="text-white">
             <h3>Diff</h3>
-            <h6>Git tenterà di incorporare automaticamente le modifiche, se ciò non è possibile, git, ci segnalerà che sono presenti dei conflitti, e che quindi bisogna risolverli manualmente.</h6>
+            <h6>Git tenterà di incorporare automaticamente le modifiche, se ciò non è possibile, Git, ci segnalerà che sono presenti dei conflitti, e che quindi bisogna risolverli manualmente.</h6>
             <h6>Una volta fattto ciò si potranno visualizzare le differenze prima di effettuare il merge digitando</h6>
             <code>
                 <span>$ git diff <b>branch_sorgente branch_target</b></span>
@@ -206,7 +206,7 @@
     
     
     
-    <section class="grey text-white">
+    <section class="git-stop-classic grey text-white">
         <div class="full">
             <h3 class="text-center">Altri comandi</h3>
             <code>
@@ -223,18 +223,127 @@
     </section>
     
 
-    <section class="git-classic ">
+    <section class="git-start">
         <div class="text-white">
-            <h3>Diff</h3>
-            <h6>Git tenterà di incorporare automaticamente le modifiche, se ciò non è possibile, git, ci segnalerà che sono presenti dei conflitti, e che quindi bisogna risolverli manualmente.</h6>
-            <h6>Una volta fattto ciò si potranno visualizzare le differenze prima di effettuare il merge digitando</h6>
-            <code>
-                <span>$ git diff <b>branch_sorgente branch_target</b></span>
-            </code>
-            
-            
+            <h3>GitFlow</h3>
+            <h6>Negli anni si è sfruttata la versatilità di Git per creare workflow sempre più efficienti, un esempio è GitFlow.</h6>
+            <h6>GitFlow si basa essenzialmente su 5 branches:<br> <b>Master, Hotfix, Release, Develop e Feature</b>.</h6>
         </div>
-        <img class="git" src="img/git_classic-dev-5.png">
+        <img class="git" src="img/dots.png">
+    </section>
+    
+    <section class="git">
+        <div class="text-white">
+            <h3>GitFlow branches</h3>
+            <table class="">
+                <tr><td class="big"><b>Master</b></td><td> è il ramo principale, contiene il codice in produzione.</td></tr>
+                <tr><td class="big"><b>Hotfix</b></td><td> utilizzato per fix veloci sul codice in produzione.</td></tr>
+                <tr><td class="big"><b>Release</b></td><td> utilizzato per i rilasci.</td></tr>
+                <tr><td class="big"><b>Develop</b></td><td> è il ramo principale di sviluppo.</td></tr>
+                <tr><td class="big"><b>Feature</b></td><td> contiene tutte le feature.</td></tr>
+            </table>
+        </div>
+        <img class="git top" src="img/git_stop.png">
+    </section>
+    
+    <section class="git">
+        <div class="text-white">
+            <h3>Master</h3>
+            <h6><b>Master</b> è utilizzato quasi esclusivamente dai reviewer, quando una fase di sviluppo è completa i reviewer effettuano un merge di <b>Develop</b> su <b>Master</b>, in modo rendere il codice disponibile in produzione.</h6>
+            
+            <h6>L'unico caso in cui un utente può fare una pull-req su <b>Master</b> è in caso di <b>Hotfix</b></h6>
+        </div>
+        <img class="git bottom" src="img/git_flow-dev-1.png">
+    </section>    
+    
+    <section class="git">
+        <div class="text-white">
+            <h3>Hotfix</h3>
+            <h6>Questo branch viene utilizzato solo in casi eccezionali, ovvero quando si rende necessaria una modifica veloce al codice in produzione.</h6>
+            
+            <h6>Le modifiche vengono pushate su <b>Master</b> e successivamente da <b>Master</b> a <b>Develop</b>, in modo da renderle disponibili a tutto gli sviluppatori.</h6>
+        </div>
+        <img class="git bottom" src="img/git_flow-dev-2.png">
+    </section>
+
+    
+    <section class="git">
+        <div class="text-white">
+            <h3>Release</h3>
+            <h6>Questo branch contiene solo ed esclusivamente i rilasci, ovvero il software così come viene prelevato dall'utente finale.</h6>
+            <h6>Solitamente è accompagnato da un tag che ne indica la versione.</h6>
+        </div>
+        <img class="git bottom" src="img/git_flow-dev-3.png">
+    </section>
+
+    
+    <section class="git">
+        <div class="text-white">
+            <h3>Develop</h3>
+            <h6>È il vero e proprio ramo di sviluppo, il punto di partenza di ogni fase di sviluppo.</h6>
+            <h6>Prima di iniziare una fase di sviluppo è bene fare il <b>pull</b> di <b>Develop</b>, in modo da essere sicuri che il codice sul quale si sta lavorando sia allineato all'ultima versione.</h6>
+        </div>
+        <img class="git" src="img/git_flow-dev-4.png">
+    </section>
+
+        
+    <section class="git-stop-feature">
+        <div class="text-white">
+            <h3>Develop e Feature</h3>
+            <h6>La differenza principale tra il workflow classico e GitFlow sta nell' utilizzo di un numero fisso di branches e l'interazione tra <b>Develop</b> e <b>Feature</b>.</h6>
+            <h6>Il concetto stesso di <b>Feature</b> rende il disegno apparentemente più complesso, ma allo stesso tempo garantisce un controllo maggiore.</h6>
+        </div>
+        <img class="git bottom" src="img/git_flow-dev-5.png">
+    </section>        
+    
+    <section class="git-feature">
+        <div class="text-white">
+            <h3>Feature</h3>
+            <h6>La particolarità del branch <b>Feature</b>, è che esso è diviso in diversi sotto-branches, le features appunto.</h6>
+            <h6>Questo permette al team di sviluppo di avere un controllo più capillare sul flusso di lavoro e velocizzare la risoluzione dei conflitti.</h6>
+        </div>
+        <img class="git bottom" src="img/git_flow-dev-6.png">
+    </section>    
+    
+    <section class="git-features">
+        <div class="text-white">
+            <h3>Feature</h3>
+            <h6>Una volta completato il lavoro sulla <b>feature</b> viene fatto il push ed effettuata una pull-req su <b>Develop</b>.</h6>
+            <h6>NB: nell'effettuare la pull-req è possibile richiedere o meno la chiusura della <b>feature</b></h6>
+        </div>
+        <img class="git" src="img/git_flow-dev-7.png">
+    </section>
+    
+    <section class="git-features">
+        <div class="text-white">
+            <h3>Feature by Feature</h3>
+            <h6>Se il lavoro che abbiamo appena effettuato su una <b>feature</b> è stato pushato ma non ancora mergiato su <b>Develop</b>, ed abbiamo bisogno di quelle modifiche per la creazione di una nuova <b>feature</b>, è sempre possibile partire dalla propria <b>feature</b>.</h6>
+        </div>
+        <img class="git" src="img/git_flow-dev-8.png">
+    </section>    
+    
+    <section class="git-features">
+        <div class="text-white">
+            <h3>Merge di Feature</h3>
+            <h6>Può capitare di aver bisogno di una modifica (pushata ma non ancora mergiata su Develop) effettuata da un altro utente, in questo caso è possibile fare il merge tra <b>features</b>. 
+        </div>
+        <img class="git" src="img/git_flow-dev-9.png">
+    </section>
+    
+    <section class="git-features">
+        <div class="text-white">
+            <h3>Stash</h3>
+            <h6>Può capitare di aver bisogno di una modifica (pushata ma non ancora mergiata su Develop) effettuata da un altro utente, in questo caso è possibile fare il merge tra <b>features</b>. 
+        </div>
+        <img class="git" src="img/git_flow-dev-9.png">
+    </section>
+    
+    <section class="git-features">
+        <div class="text-white">
+            <h3>Rebase</h3>
+            <h6>Può capitare di aver bisogno di una modifica (pushata ma non ancora mergiata su Develop) effettuata da un altro utente, in questo caso è possibile fare il merge tra <b>features</b>. 
+        </div>
+        <img class="git" src="img/git_flow-dev-9.png">
     </section>
 
     

@@ -68,6 +68,11 @@ section > img.git{
     transform: translate(0, -50%);
 }
 
+section > img.git.top{
+    top: 0;
+    transform: translate(0, 0);
+}
+
 section > img.git.bottom{
     top: auto;
     bottom: 0;
@@ -78,6 +83,12 @@ section > img.git.half{
     width: 35vw;
     transform: translate(0, -50%);
 }
+
+
+
+
+
+
 
 section.git{
     background-image: url(img/git_repeat.png);
@@ -101,20 +112,14 @@ section.git-stop{
 }
 
 
+
+
+
 section.git-classic{
     background-image: url(img/git_repeat-classic.png);
     background-position: right 10vw top;
     background-repeat: repeat-y;
     background-size: 30vw;
-}
-section.git-classic.r2{
-    background-image: url(img/git_repeat-classic2.png);
-}
-section.git-classic.r3{
-    background-image: url(img/git_repeat-classic3.png);
-}
-section.git-classic.r4{
-    background-image: url(img/git_repeat-classic4.png);
 }
 
 section.git-start-classic{
@@ -130,6 +135,42 @@ section.git-stop-classic{
     background-repeat: no-repeat;
     background-size: 30vw;
 }
+
+
+
+
+
+
+section.git-feature{
+    background-image: url(img/git_flow-feature-repeat.png);
+    background-position: right 10vw top;
+    background-repeat: repeat-y;
+    background-size: 30vw;
+}
+section.git-features{
+    background-image: url(img/git_flow-features-repeat.png);
+    background-position: right 10vw top;
+    background-repeat: repeat-y;
+    background-size: 30vw;
+}
+
+section.git-start-feature{
+    background-image: url(img/git_flow-feature-start.png);
+    background-position: right 10vw bottom;
+    background-repeat: no-repeat;
+    background-size: 30vw;/* 50vh*/
+}
+
+section.git-stop-feature{
+    background-image: url(img/git_flow-feature-stop.png);
+    background-position: right 10vw top;
+    background-repeat: no-repeat;
+    background-size: 30vw;
+}
+
+
+
+
 
 
 button{
@@ -150,11 +191,17 @@ tr td{
 tr:nth-child(even) td{
     background: rgba(0,0,0,0.4);
 }
+
+table.nobg td{
+    background: none;
+}
 td{
     padding: 8px 15px;
     border-radius: 4px;
 }
-
+td.big{
+    font-size: 30px;
+}
 
 code{
     display: block;
