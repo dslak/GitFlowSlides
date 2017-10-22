@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GitFlow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <section class="git-start">
+        <div class="text-white">
+            <h1>Check the flow:</h1>
+            <h4>Git workflow with GitFlow</h4>
+            <h6>Carmine De Rosa</h6>
+            <h1>&nbsp;</h1>
+            
+        </div>
+        <img class="git" src="img/dots.png">
+    </section>
+    
+    <section class="git-stop">
+        <div class="text-white">
+            <h1>Why Git?</h1>
+            <h6>Prima di iniziare a parlare di Git, ed in particolar modo di GitFlow, è bene fare una panoramica dei sistemi di controllo del codice sorgente più usati...</h6>
+        </div>
+        <img class="git" src="img/git.png">
+    </section>
+    
+    <section>
+        <div class="text-white">
+            <h1>1 minuto di silenzio</h1>
+            <h6>Se credete che questo sia un metodo efficace o anche solo "sufficiente" a garantire un adeguato controllo del codice, cambiate lavoro!</h6>
+        </div>
+        <img class="git" src="img/pendrive.png">
+    </section>
+    
+    <section>
+        <div class="text-white full">
+            <h2>Prima di Git</h2>
+            <h6>Prima che Git facesse la sua comparsa (per mano di Linux Torvalds), i sistemi di versioning più diffusi erano CVS, SVN, etc... molti di questi sistemi utilizzavano un modello centralizzato e rendevano lo sviluppo collaborativo un vero incubo.</h6>
+        </div>
+    </section>
+    
+    <section>
+        <div class="text-white half">
+            <h3>Modello centralizzato</h3>
+            <h6>Il modello centralizzato prevede un unico repository ed un sistema di lock, cosicchè uno sviluppatore per volta ha diritto di accesso in scrittura alla copia di quel file contenuta nel repository centrale.</h6>
+        </div>
+        <img class="git half" src="img/centralized.png">
+    </section>
+    
+        
+    <section>
+        <div class="text-white half">
+            <h3>Modello distribuito</h3>
+            <h6>Nei modelli distribuiti ogni sviluppatore ha un proprio repository locale, cosicchè da poter operare anche senza avere una connessione...</h6>
+        </div>
+        <img class="git half" src="img/distribuited.png">
+    </section>
+            
+    <section class="grey text-white">
+        <div class="full">
+            <h3 class="text-center">SVN vs GIT</h3>
+            <table>
+                <tr>
+                    <td style="background:none"></td>
+                    <td><h6>SVN</h6></td>
+                    <td><h6>Git</h6></td>
+                </tr>
+                <tr>
+                    <td><b>Controllo di versione</b></td>
+                    <td>Centrale</td>
+                    <td>Distribuito</td>
+                </tr>
+                <tr>
+                    <td><b>Repository</b></td>
+                    <td>Repository centrale in cui vengono create le copie di lavoro</td>
+                    <td>Copie locali del repository su cui poter lavorare</td>
+                </tr>
+                <tr>
+                    <td><b>Permesso di accesso</b></td>
+                    <td>Basato sul percorso</td>
+                    <td>Per tutta la directory</td>
+                </tr>
+                <tr>
+                    <td><b>Visualizzazione delle modifiche</b></td>
+                    <td>Registra i file</td>
+                    <td>Registra i contenuti</td>
+                </tr>
+                <tr>
+                    <td><b>Cronologia delle modifiche</b></td>
+                    <td>Completa solo nel repository, le copie di lavoro contengono solo la versione più recente</td>
+                    <td>Repository e copie di lavoro contengono la cronologia completa</td>
+                </tr>
+                <tr>
+                    <td><b>Connessione di rete</b></td>
+                    <td>Ad ogni accesso</td>
+                    <td>Necessaria solo per la sincronizzazione</td>
+                </tr>
+            </table>
+
+        </div>
+    </section>
+    
+    
+    <section class="git-start-classic">
+        <div class="text-white">
+            <h3>Git classic workflow</h3>
+            <h6>Il sistema di versioning di Git si divide in rami o branches, il workflow classico di Git prevede N branches, il primo è il <b>Master</b> e gli altri sono di <b>Develop</b></h6>
+            <h6>Il primo branch (<b>Master</b>) è sostanzialmente deputato ai rilasci, mentre i branches di <b>Develop</b> vengono utilizzati per lo sviluppo.</h6>
+        </div>
+        <img class="git" src="img/git_dots-classic.png">
+    </section>
+   
+    
+    <section class="git-classic ">
+        <div class="text-white">
+            <h3>Init</h3>
+            <h6>Prima di tutto creiamo ed inizzializziamo la nostra repo, per fare ciò sufficiente creare una directory e lanciare:</h6>
+            <code>
+                <span>$ git init</span>
+            </code>
+            <h6>L'operazione creerà una directory nascosta <b>.git</b> contenente la configurazione della repo.</h6>
+            
+            La repo è composta da tre "alberi" mantenuti da Git. Il primo è la <b>Directory di lavoro</b> che contiene i files attuali. Il secondo è l'<b>Index</b> che fa da spazio di transito per i files e per finire l'<b>HEAD</b> che punta all'ultimo commit fatto. 
+        </div>
+    </section>   
+    
+    <section class="git-classic">
+        <div class="text-white">
+            <h3>Clone</h3>
+            <h6>Se invece partiamo da da una repo già esistente, possiamo clonarla con il comando:</h6>
+            <code>
+                <span>$ git clone /path/to/repository</span>
+            </code>
+            <h6>ES:</h6>
+            <code>
+                <span>$ git clone https://github.com/dslak/GitFlow.git</span>
+            </code>
+        </div>
+        <img class="git bottom" src="img/git_classic-dev-0.png">
+    </section>
+   
+    
+    <section class="git-classic">
+        <div class="text-white">
+            <h3>Pull</h3>
+            <h6>Ogni volta che un utente inizia a lavorare su una nuova feature fa il <b>pull</b>, ovvero fa il fetch&merge delle modifiche presenti sul server remoto sulla propria repo locale, in modo da allinearsi.</h6>
+            <h6>Ad ogni modifica effettua un <b>commit</b> in modo da tenere traccia delle modifiche passo passo.</h6>
+        </div>
+        <img class="git" src="img/git_classic-dev-1.png">
+    </section>
+    
+    <section class="git-classic">
+        <div class="text-white">
+            <h3>Commit</h3>
+            <h6>Ad ogni modifica effettuata è bene fare un <b>commit</b> in modo da tenere traccia delle modifiche passo passo.</h6>
+            <h6>NB: i commit sono gratis!</h6>
+            <code>
+                <span>$ git commit -m 'modificata area utente'</span>
+                <span>$ git commit -m 'aggiunto controllo'</span>
+            </code>
+            
+            <p>È buona prassi specificare un messaggio di commit esplicativo, "fix" non lo è!</p>
+        </div>
+        <img class="git" src="img/git_classic-dev-2.png">
+    </section>
+    
+    <section class="git-classic ">
+        <div class="text-white">
+            <h3>Push</h3>
+            <h6>Una volta completato lo sviluppo di una feature si procede con l'invio delle modifiche locali al branch (in questo caso master) sulla repo principale in modo da renderla disponibile agli altri sviluppatori.</h6>
+            <code>
+                <span>$ git push origin master</span>
+            </code>
+        </div>
+        <img class="git" src="img/git_classic-dev-3.png">
+    </section>
+    
+    <section class="git-classic ">
+        <div class="text-white">
+            <h3>Merge</h3>
+            <h6>Nel caso in cui si abbia bisogno di modifiche presenti su un altro branch, è possibile effettuare il <b>merge</b> di due branch.</h6>
+            <code>
+                <span>$ git push merge <b>branch</b></span>
+            </code>
+        </div>
+        <img class="git" src="img/git_classic-dev-4.png">
+    </section>   
+    
+    <section class="git-classic ">
+        <div class="text-white">
+            <h3>Diff</h3>
+            <h6>Git tenterà di incorporare automaticamente le modifiche, se ciò non è possibile, Git, ci segnalerà che sono presenti dei conflitti, e che quindi bisogna risolverli manualmente.</h6>
+            <h6>Una volta fattto ciò si potranno visualizzare le differenze prima di effettuare il merge digitando</h6>
+            <code>
+                <span>$ git diff <b>branch_sorgente branch_target</b></span>
+            </code>
+            
+            
+        </div>
+        <img class="git" src="img/git_classic-dev-5.png">
+    </section>
+
+    
+    
+    
+    <section class="git-stop-classic grey text-white">
+        <div class="full">
+            <h3 class="text-center">Altri comandi</h3>
+            <code>
+                <span>$ git add <b>nomedelfile</b> <comment>// Agginge un file all'INDEX</comment></span>
+                <span>$ git remote add origin <b>server</b> <comment>// Connette la repo locale al server remoto</comment></span>
+                <span>$ git checkout -b <b>feature_x</b> <comment>// Crea un nuovo branch e passa ad esso</comment></span>
+                <span>$ git checkout <b>feature_x</b> <comment>// Passa ad un branch esistente</comment></span>
+                <span>$ git checkout -d <b>feature_x</b> <comment>// Cancella un branch</comment></span>
+                <span>$ git tag <b>1.0.0</b> <b>commitID</b> <comment>// Crea un tag, utile per il rilascio</comment></span>
+                <span>$ git log <b>feature_x</b> <comment>// Restituisce il commitID</comment></span>
+            </code>
+
+        </div>
+    </section>
+    
+
+    <section class="git-start">
+        <div class="text-white">
+            <h3>GitFlow</h3>
+            <h6>Negli anni si è sfruttata la versatilità di Git per creare workflow sempre più efficienti, un esempio è GitFlow.</h6>
+            <h6>GitFlow si basa essenzialmente su 5 branches:<br> <b>Master, Hotfix, Release, Develop e Feature</b>.</h6>
+        </div>
+        <img class="git" src="img/dots.png">
+    </section>
+    
+    <section class="git">
+        <div class="text-white">
+            <h3>GitFlow branches</h3>
+            <table class="">
+                <tr><td class="big"><b>Master</b></td><td> è il ramo principale, contiene il codice in produzione.</td></tr>
+                <tr><td class="big"><b>Hotfix</b></td><td> utilizzato per fix veloci sul codice in produzione.</td></tr>
+                <tr><td class="big"><b>Release</b></td><td> utilizzato per i rilasci.</td></tr>
+                <tr><td class="big"><b>Develop</b></td><td> è il ramo principale di sviluppo.</td></tr>
+                <tr><td class="big"><b>Feature</b></td><td> contiene tutte le feature.</td></tr>
+            </table>
+        </div>
+        <img class="git top" src="img/git_stop.png">
+    </section>
+    
+    <section class="git">
+        <div class="text-white">
+            <h3>Master</h3>
+            <h6><b>Master</b> è utilizzato quasi esclusivamente dai reviewer, quando una fase di sviluppo è completa i reviewer effettuano un merge di <b>Develop</b> su <b>Master</b>, in modo rendere il codice disponibile in produzione.</h6>
+            
+            <h6>L'unico caso in cui un utente può fare una pull-req su <b>Master</b> è in caso di <b>Hotfix</b></h6>
+        </div>
+        <img class="git bottom" src="img/git_flow-dev-1.png">
+    </section>    
+    
+    <section class="git">
+        <div class="text-white">
+            <h3>Hotfix</h3>
+            <h6>Questo branch viene utilizzato solo in casi eccezionali, ovvero quando si rende necessaria una modifica veloce al codice in produzione.</h6>
+            
+            <h6>Le modifiche vengono pushate su <b>Master</b> e successivamente da <b>Master</b> a <b>Develop</b>, in modo da renderle disponibili a tutto gli sviluppatori.</h6>
+        </div>
+        <img class="git bottom" src="img/git_flow-dev-2.png">
+    </section>
+
+    
+    <section class="git">
+        <div class="text-white">
+            <h3>Release</h3>
+            <h6>Questo branch contiene solo ed esclusivamente i rilasci, ovvero il software così come viene prelevato dall'utente finale.</h6>
+            <h6>Solitamente è accompagnato da un tag che ne indica la versione.</h6>
+        </div>
+        <img class="git bottom" src="img/git_flow-dev-3.png">
+    </section>
+
+    
+    <section class="git">
+        <div class="text-white">
+            <h3>Develop</h3>
+            <h6>È il vero e proprio ramo di sviluppo, il punto di partenza di ogni fase di sviluppo.</h6>
+            <h6>Prima di iniziare una fase di sviluppo è bene fare il <b>pull</b> di <b>Develop</b>, in modo da essere sicuri che il codice sul quale si sta lavorando sia allineato all'ultima versione.</h6>
+        </div>
+        <img class="git" src="img/git_flow-dev-4.png">
+    </section>
+
+        
+    <section class="git-stop-feature">
+        <div class="text-white">
+            <h3>Develop e Feature</h3>
+            <h6>La differenza principale tra il workflow classico e GitFlow sta nell' utilizzo di un numero fisso di branches e l'interazione tra <b>Develop</b> e <b>Feature</b>.</h6>
+            <h6>Il concetto stesso di <b>Feature</b> rende il disegno apparentemente più complesso, ma allo stesso tempo garantisce un controllo maggiore.</h6>
+        </div>
+        <img class="git bottom" src="img/git_flow-dev-5.png">
+    </section>        
+    
+    <section class="git-feature">
+        <div class="text-white">
+            <h3>Feature</h3>
+            <h6>La particolarità del branch <b>Feature</b>, è che esso è diviso in diversi sotto-branches, le features appunto.</h6>
+            <h6>Questo permette al team di sviluppo di avere un controllo più capillare sul flusso di lavoro e velocizzare la risoluzione dei conflitti.</h6>
+        </div>
+        <img class="git bottom" src="img/git_flow-dev-6.png">
+    </section>    
+    
+    <section class="git-features">
+        <div class="text-white">
+            <h3>Feature</h3>
+            <h6>Una volta completato il lavoro sulla <b>feature</b> viene fatto il push ed effettuata una pull-req su <b>Develop</b>.</h6>
+            <h6>NB: nell'effettuare la pull-req è possibile richiedere o meno la chiusura della <b>feature</b></h6>
+        </div>
+        <img class="git" src="img/git_flow-dev-7.png">
+    </section>
+    
+    <section class="git-features">
+        <div class="text-white">
+            <h3>Feature by Feature</h3>
+            <h6>Se il lavoro che abbiamo appena effettuato su una <b>feature</b> è stato pushato ma non ancora mergiato su <b>Develop</b>, ed abbiamo bisogno di quelle modifiche per la creazione di una nuova <b>feature</b>, è sempre possibile partire dalla propria <b>feature</b>.</h6>
+        </div>
+        <img class="git" src="img/git_flow-dev-8.png">
+    </section>    
+    
+    <section class="git-features">
+        <div class="text-white">
+            <h3>Merge di Feature</h3>
+            <h6>Può capitare di aver bisogno di una modifica (pushata ma non ancora mergiata su Develop) effettuata da un altro utente, in questo caso è possibile fare il merge tra <b>features</b>.</h6>
+        </div>
+        <img class="git" src="img/git_flow-dev-9.png">
+    </section>
+    
+    <section class="git-features">
+        <div class="text-white">
+            <h3>Stash</h3>
+            <h6>Se abbiamo fatto il <b>checkout</b> su una <b>feature</b> ma dobbiamo passare ad un altra <b>feature</b>, possiamo congelare le modifiche facendo uno <b>stash</b>.</h6> 
+            <h6>Tutte le modifiche potranno essere eliminate oppure applicate alla stessa o ad un altra <b>feature</b> in un secondo momento.</h6> 
+        </div>
+        <img class="git" src="img/git_flow-dev-10.png">
+    </section>
+    
+    <section class="git-features">
+        <div class="text-white">
+            <h3>Rebase</h3>
+            <h6>Può capitare di dover lavorare su una <b>feature</b> esistente dopo aver lavorato su altre feature, se facciamo il <b>checkout</b> sulla feature in questione torniamo indietro nella <b>history</b> e perdiamo le modifiche successive.</h6> 
+            <h6>Effettuando il <b>rebase</b> creiamo un avanzamento delle history fino al commit corrente.</h6>
+        </div>
+        <img class="git" src="img/git_flow-dev-11.png">
+    </section>
+
+    
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+ 
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/main.js"></script>
+</body>
+</html>
