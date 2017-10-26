@@ -156,7 +156,7 @@ section.git-features{
 
 section.git-start-feature{
     background-image: url(img/git_flow-feature-start.png);
-    background-position: right 10vw bottom;
+    background-position: right 10vw top;
     background-repeat: no-repeat;
     background-size: 30vw;/* 50vh*/
 }
@@ -168,17 +168,6 @@ section.git-stop-feature{
     background-size: 30vw;
 }
 
-
-
-
-
-
-button{
-    width: 90%;
-    height:40vh;
-    margin:4vh 0;
-    font-size: 3rem;
-}
 
 table{
     width: 100%;
@@ -233,3 +222,51 @@ code comment{
 .text-center{
     text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
+/*  ################# CONTROLS */
+
+
+
+
+#controls{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+button{
+    width: 90%;
+    height:30vh;
+    margin: 2vh 0;
+    font-size: 10vh;
+}
+
+
+select{
+    width: 90%;
+    height: 18vh;
+    margin: 2vh 0;
+    font-size: 5vh;
+    text-align: center;
+    text-align-last:center;
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;    
+}
+
+option{
+    text-align: center;
+}
+
+
