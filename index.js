@@ -9,6 +9,7 @@ app.use(express.static(__dirname + '/public'));
 
 function onConnection(socket){
   socket.on('key', (data) => socket.broadcast.emit('key', data));
+  socket.on('slidesLen', (data) => socket.broadcast.emit('slidesLen', data));
 }
 
 io.on('connection', onConnection);
