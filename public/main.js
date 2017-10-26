@@ -7,6 +7,7 @@
     var slidesLen = $('section').length;
 
     socket.on('key', navigate);
+    socket.emit('slidesLen', slidesLen);
 
     function navigate(e){
         if(e>slidesLen){
@@ -17,13 +18,13 @@
 
     
     function scrollTo(slide){
-        var top = $('section:nth-child('+slide+') img.git').css('top');
+        var top = $('section:nth-child('+slide+') img.git.animate').css('top');
         console.log("Slide: ", slide, $('section:nth-child('+slide+')').offset().top, top);
         
-        $('section:nth-child('+slide+') img.git').css({'top': '80%','opacity':'0'});
+        $('section:nth-child('+slide+') img.git.animate').css({'top': '80%','opacity':'0'});
         $("html, body").stop().animate({ scrollTop: $('section:nth-child('+slide+')').offset().top }, 500,
             function(){
-                $('section:nth-child('+slide+') img.git').animate({'top': top,'opacity':'1'},1000,'easeOutExpo');
+                $('section:nth-child('+slide+') img.git.animate').animate({'top': top,'opacity':'1'},1000,'easeOutExpo');
             }
         );
     }
