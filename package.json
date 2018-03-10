@@ -8,6 +8,7 @@
   ],
   "dependencies": {
     "express": "latest",
+    "moment": "latest",
     "ms": "github:zeit/ms",
     "pillarjs": "latest",
     "send": "github:pillarjs/send",
