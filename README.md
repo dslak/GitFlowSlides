@@ -7,7 +7,7 @@ Carmine De Rosa
 **START**
 
 ```
-npm index.js
+node index.js
 ```
   
   
