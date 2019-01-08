@@ -1,24 +1,5 @@
-# GitFlowSlides
+# Moved to GitLab
+Following Microsoft's acquisition of GitHub and its petty corporate policy, which exploits open-source for its exclusive benefit and not for the benefit of the community, all Dslak repositories have been transferred to GitLab.
 
-LinuxDay Salerno 2017 - 
-GitFlow - 
-Carmine De Rosa  
+https://github.com/dslak
 
-**START**
-
-```
-node index.js
-```
-  
-  
-**Client (slides)**
-
-```
-http://localhost:3000
-```
-  
- **Server (controller)**
- 
-```
-http://localhost:3000/control.html
-```
